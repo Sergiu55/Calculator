@@ -100,6 +100,56 @@ public class calculator implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        for(int i=0;i<10;i++) {
+            if(e.getSource() == numberButtons[i]) {
+                textfield.setText(textfield.getText().concat(String.valueOf(i)));
+            }
+        }
+        if(e.getSource()==decButton) {
+            textfield.setText(textfield.getText().concat("."));
+        }
+        if(e.getSource()==addButton) {
+            num1 = Double.parseDouble(textfield.getText());
+            operator = '+';
+            textfield.setText("");
+        }
+        if(e.getSource()==subButton) {
+            num1 = Double.parseDouble(textfield.getText());
+            operator = '-';
+            textfield.setText("");
+        }
+        if(e.getSource()==mulButton) {
+            num1 = Double.parseDouble(textfield.getText());
+            operator = '*';
+            textfield.setText("");
+        }
+        if(e.getSource()==divButton) {
+            num1 = Double.parseDouble(textfield.getText());
+            operator = '/';
+            textfield.setText("");
+        }
+        if(e.getSource()==equButton) {
+            num2=Double.parseDouble(textfield.getText());
+
+            switch(operator) {
+                case'+':
+                    result=num1+num2;
+                    break;
+                case'-':
+                    result=num1-num2;
+                    break;
+                case'*':
+                    result=num1*num2;
+                    break;
+                case'/':
+                    result=num1/num2;
+                    break;
+            }
+            textfield.setText(String.valueOf(result));
+            num1=result;
+        }
+
+
 
     }
 }
